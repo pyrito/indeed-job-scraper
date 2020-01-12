@@ -34,7 +34,7 @@ for city in city_set:
         cnt = 0
         startTime = time.time()
 
-        df = pd.DataFrame(columns = ['unique_id', 'city', 'job_qry','job_title', 'company_name', 'location', 'summary', 'salary', 'link', 'date', 'full_text'])
+        df = pd.DataFrame(columns = ['city', 'job_qry','job_title', 'company_name', 'location', 'summary', 'salary', 'link', 'full_text'])
     
         for start in range(0, max_results_per_city, 10):
             page = requests.get('http://www.indeed.com/jobs?q=' + job_qry +'&l=' + str(city) + '&start=' + str(start))
@@ -53,7 +53,6 @@ for city in city_set:
 
                 job_post = [] 
 
-                job_post.append(div['id'])
                 job_post.append(city)
                 job_post.append(job_qry)
                 job_post.append(extract_job_title(div))
@@ -63,7 +62,6 @@ for city in city_set:
                 job_post.append(extract_salary(div))
                 link = extract_link(div)
                 job_post.append(link)
-                job_post.append(extract_date(div))
                 job_post.append(extract_fulltext(link))
 
                 df.loc[num] = job_post

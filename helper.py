@@ -60,15 +60,15 @@ def extract_link(div):
     return 'NOT_FOUND'
 
 
-# extract date of job when it was posted
-def extract_date(div):
-    try:
-        spans = div.findAll('span', attrs={'class': 'date'})
-        for span in spans:
-            return (span.text.strip())
-    except:
-        return 'NOT_FOUND'
-    return 'NOT_FOUND'
+# # extract date of job when it was posted
+# def extract_date(div):
+#     try:
+#         spans = div.findAll('span', attrs={'class': 'date'})
+#         for span in spans:
+#             return (span.text.strip())
+#     except:
+#         return 'NOT_FOUND'
+#     return 'NOT_FOUND'
 
 # extract full job description from link
 def extract_fulltext(url):
