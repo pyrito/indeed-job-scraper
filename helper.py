@@ -1,6 +1,6 @@
+import requests
 from bs4 import BeautifulSoup
 # Based on this: https://github.com/tarunsinghal92/indeedscrapperlatest
-
 
 # get soup object
 def get_soup(text):
@@ -31,11 +31,11 @@ def extract_salary(div):
     return 'NOT_FOUND'
 
 
-# # extract job location
-# def extract_location(div):
-#     for divs in div.findAll('div', attrs={'class': 'location accessible-contrast-color-location'}):
-#         return (divs.text)
-#     return 'NOT_FOUND'
+# extract job location
+def extract_location(div):
+    for divs in div.findAll('div', attrs={'class': 'location accessible-contrast-color-location'}):
+        return (divs.text)
+    return 'NOT_FOUND'
 
 
 # extract job title
@@ -70,7 +70,6 @@ def extract_date(div):
         return 'NOT_FOUND'
     return 'NOT_FOUND'
 
-
 # extract full job description from link
 def extract_fulltext(url):
     try:
@@ -82,7 +81,6 @@ def extract_fulltext(url):
     except:
         return 'NOT_FOUND'
     return 'NOT_FOUND'
-
 
 # write logs to file
 def write_logs(text):
