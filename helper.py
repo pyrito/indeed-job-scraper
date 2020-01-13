@@ -82,9 +82,10 @@ def extract_fulltext(url):
         return 'NOT_FOUND'
     return 'NOT_FOUND'
 
-# write logs to file
-def write_logs(text):
-    # print(text + '\n')
-    f = open('log.txt','a')
-    f.write(text + '\n')  
-    f.close()
+# # write logs to file
+# def write_logs(text):
+#     # print(text + '\n')
+#     f = open('log.txt','a')
+#     f.truncate(0)
+#     f.write(text + '\n')  
+#     f.close()

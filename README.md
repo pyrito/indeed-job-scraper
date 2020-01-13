@@ -9,11 +9,6 @@ You may not have all the dependencies that are needed for the scripts to work so
 pip3 install -r requirements.txt
 ```
 
-To run the main logic of the scraper:
-```
-python3 scraper.py
-```
-
 This repo isn't configurable with another file so queries, cities, and number of jobs to be scraped should be modified in the scraper.py source code.
 
 To change results per city modify the following:
@@ -33,4 +28,9 @@ city_set = ['Chicago']
 ```
 NOTE: there is a full_city_set which has a bunch of major cities and the proper formatting required.
 
-The result should be in a properly indexed CSV file.
+To run the main logic of the scraper:
+```
+python3 scraper.py
+```
+
+The result should be in a properly named CSV file.
