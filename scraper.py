@@ -69,7 +69,7 @@ for city in city_set:
                 write_logs(('Completed =>') + '\t' + city  + '\t' + job_qry + '\t' + str(cnt) + '\t' + str(start) + '\t' + str(time.time() - startTime) + '\t' + ('file_' + str(file)))
 
             #saving df as a local csv file 
-            df.to_csv('jobs_' + str(file) + '.csv', encoding='utf-8')
+            df.to_csv(str(city) + '_jobs_' + str(file) + '.csv', encoding='utf-8')
         
         else:
             write_logs(('Skipped =>') + '\t' + city  + '\t' + job_qry + '\t' + str(-1) + '\t' + str(-1) + '\t' + str(time.time() - startTime) + '\t' + ('file_' + str(file)))
