@@ -28,6 +28,7 @@ job_set = ['software+engineer']
 # file num
 file = 1
 
+print("Started scraping...")
 # loop on all cities
 for city in city_set:
     for job_qry in job_set:
@@ -35,7 +36,7 @@ for city in city_set:
         startTime = time.time()
 
         df = pd.DataFrame(columns = ['city', 'job_qry','job_title', 'company_name', 'location', 'summary', 'salary', 'link', 'full_text'])
-    
+
         for start in range(0, max_results_per_city, 10):
             page = requests.get('http://www.indeed.com/jobs?q=' + job_qry +'&l=' + str(city) + '&start=' + str(start))
             time.sleep(1)  
@@ -44,8 +45,8 @@ for city in city_set:
             divs = soup.find_all(name="div", attrs={"class":"row"})
             
             if(len(divs) == 0):
+                print("Could not get any source code for the query...")
                 break
-
             # for all jobs on a page
             for div in divs: 
                 num = (len(df) + 1) 
@@ -76,3 +77,4 @@ for city in city_set:
         
         # increment file
         file = file + 1
+print("DONE")
